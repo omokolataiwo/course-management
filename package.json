@@ -1,0 +1,93 @@
+{
+  "name": "basic-react-setup",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/omokolataiwo/basic-react-setup.git",
+  "author": "TAIWO KOLAWOLE <kolawole.taiwo@andela.com>",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "build": "webpack --config webpack.config.js -p",
+    "start": "cd web/public && serve",
+    "webpack:dev": "webpack-dev-server --config webpack.config.js --mode development",
+    "all": "npm-run-all --parallel lint:watch webpack:dev \"test -- --watch\"",
+    "lint": "node_modules/.bin/esw web/src/*",
+    "lint:watch": "sane \"node_modules/.bin/esw web/src/*\" \"web/src\"",
+    "test": "jest"
+  },
+  "dependencies": {
+    "font-awesome": "^4.7.0",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "react-redux": "^5.1.0",
+    "react-router-dom": "^4.3.1",
+    "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0",
+    "serve": "^10.0.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-core": "^7.0.0-bridge",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^23.6.0",
+    "babel-loader": "^8.0.4",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "css-loader": "^1.0.0",
+    "enzyme": "^3.7.0",
+    "enzyme-adapter-react-16": "^1.6.0",
+    "enzyme-to-json": "^3.3.4",
+    "eslint": "^5.8.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-react": "^7.11.1",
+    "eslint-watch": "^4.0.2",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^2.0.0",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "husky": "^1.1.2",
+    "jest": "^23.6.0",
+    "npm-run-all": "^4.1.3",
+    "prop-types": "^15.6.2",
+    "react-dev-utils": "^6.0.5",
+    "react-hot-loader": "^4.3.11",
+    "redux-devtools-extension": "^2.13.5",
+    "redux-mock-store": "^1.5.3",
+    "sane": "^4.0.1",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.22.0",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.9"
+  },
+  "jest": {
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "web/src/**/*.{js,jsx}",
+      "!web/src/reducers/index.js",
+      "!web/src/store/index.js",
+      "!web/src/index.jsx"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 80,
+        "functions": 80,
+        "lines": 80,
+        "statements": -10
+      }
+    },
+    "bail": true,
+    "verbose": false,
+    "setupFiles": [
+      "<rootDir>/web/__tests__/setup/setupEnzyme.js"
+    ],
+    "testPathIgnorePatterns": [
+      "<rootDir>/web/__tests__/setup/"
+    ],
+    "moduleNameMapper": {
+      ".+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2|gif)$": "identity-obj-proxy"
+    }
+  }
+}
