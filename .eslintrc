@@ -14,9 +14,11 @@
         "devDependencies": true
       }
     ],
+    "import/prefer-default-export": "off",
     "comma-dangle": ["error",{
       "functions": "ignore"
     }],
+    "no-param-reassign": "off",
     "no-shadow": "off",
     "import/no-named-as-default": "off"
   }

@@ -1,3 +1,3 @@
-### Basic React Setup
+### Koursa
 
-Simple React Boilerplate
+Koursa manages online courses.
