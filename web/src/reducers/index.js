@@ -1,4 +1,4 @@
 import { combineReducers } from 'redux';
-import message from './message';
+import course from './course';
 
-export default combineReducers({ message });
+export default combineReducers({ course });

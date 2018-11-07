@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Header from '../containers/Header';
 
-class AllCourses extends Component {
+export class AllCourses extends Component {
   static propTypes = {
     courses: PropTypes.arrayOf(
       PropTypes.shape({
@@ -19,6 +19,7 @@ class AllCourses extends Component {
     return (
       <div>
         <Header />
+        <h2>Available Courses</h2>
         <div className="container">
           <table className="table">
             <thead>
@@ -31,7 +32,7 @@ class AllCourses extends Component {
             </thead>
             <tbody>
               {courses.map((course, index) => (
-                <tr>
+                <tr key={index} className="course">
                   <td>{course.title}</td>
                   <td>{course.authorId}</td>
                   <td>{course.length}</td>
@@ -46,8 +47,10 @@ class AllCourses extends Component {
   }
 }
 
-const mapStateToProps = ({ course }) => ({ courses: course.courses || [] });
-export default connect(
-  mapStateToProps,
-  {}
-)(AllCourses);
+export const mapStateToProps = ({ course }) => {
+  if (!course) {
+    throw new Error('Course not in store');
+  }
+  return ({ courses: course.courses || [] });
+};
+export default connect(mapStateToProps)(AllCourses);
