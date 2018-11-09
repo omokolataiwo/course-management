@@ -2,7 +2,11 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import Course from '../../src/components/course/Index';
 
-const wrapper = shallow(<Course />);
+const props = {
+  match: { path: '' }
+};
+
+const wrapper = shallow(<Course {...props} />);
 
 describe('Course Component', () => {
   it('should render component', () => {

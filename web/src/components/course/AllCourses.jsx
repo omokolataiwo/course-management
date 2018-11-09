@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -20,6 +21,7 @@ export class AllCourses extends Component {
       <div>
         <Header />
         <h2>Available Courses</h2>
+        <Link to="/course/add-course">New Course</Link>
         <div className="container">
           <table className="table">
             <thead>
@@ -53,4 +55,5 @@ export const mapStateToProps = ({ course }) => {
   }
   return ({ courses: course.courses || [] });
 };
+
 export default connect(mapStateToProps)(AllCourses);

@@ -1,14 +1,15 @@
 import course from '../../src/reducers/course';
 import { course as defaultCourse } from '../../src/reducers/default';
-import { FETCH_ALL_COURSES } from '../../src/actions/types';
+import { FETCH_ALL_COURSES, NEW_COURSE_CREATED, CREATING_COURSE } from '../../src/actions/types';
 
 const actions = {
   allCourses: {
     type: FETCH_ALL_COURSES,
-    courses: [
-      { title: 'First Course' },
-      { title: 'Second Course' }
-    ]
+    courses: [{ title: 'First Course' }, { title: 'Second Course' }]
+  },
+  createCourse: {
+    type: NEW_COURSE_CREATED,
+    course: { title: 'New Course' }
   }
 };
 describe('course.test Reducer', () => {
@@ -18,5 +19,15 @@ describe('course.test Reducer', () => {
   it('should return all courses', () => {
     const { courses } = actions.allCourses;
     expect(course({}, actions.allCourses)).toEqual({ courses });
+  });
+
+  it('should update event for course', () => {
+    expect(course(undefined, { type: CREATING_COURSE })).toEqual({ courses: [], event: CREATING_COURSE });
+  });
+  it('should update add course to existing courses', () => {
+    expect(course(undefined, actions.createCourse)).toEqual({
+      event: NEW_COURSE_CREATED,
+      courses: [actions.createCourse.course]
+    });
   });
 });
