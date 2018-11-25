@@ -18,7 +18,7 @@ describe('course.test Reducer', () => {
   });
   it('should return all courses', () => {
     const { courses } = actions.allCourses;
-    expect(course({}, actions.allCourses)).toEqual({ courses });
+    expect(course({}, actions.allCourses)).toEqual({ courses, event: actions.allCourses.type });
   });
 
   it('should update event for course', () => {

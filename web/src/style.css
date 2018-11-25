@@ -1,0 +1,28 @@
+.navbar {
+  margin-bottom: 1em;
+}
+
+.admin-navbar {
+  float: right
+}
+
+.admin-navbar a {
+  display: inline-block;
+  margin: auto 2px;
+}
+
+.admin-navbar + div {
+  clear: both;
+}
+
+.table {
+  margin-top: 2em;
+}
+
+.error {
+  color: #ff0000;
+}
+
+.error-404 {
+  text-align: center;
+}

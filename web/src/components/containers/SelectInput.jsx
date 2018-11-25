@@ -9,8 +9,8 @@ const SelectInput = ({
     <select className="form-control" value={value} onChange={onChange} name={name} id={name}>
       {options
         && options.map(option => (
-          <option key={option.id} value={option.id}>
-            {option.text}
+          <option key={option.key} value={option.key}>
+            {option.value}
           </option>
         ))}
     </select>
