@@ -1,0 +1,9 @@
+☐ Course Management
+  ☐ Pagination
+    ☐ implement server side pagination
+    ☐ update reducer state with totalCourse and page 
+    ✔ highlight current page in render @done(18-11-15 08:39)
+☐ Level up
+  ☐ react handle unsaved changes
+  ☐ render children in component
+  ☐ implement infinite scroll for authors
