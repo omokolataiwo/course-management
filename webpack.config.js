@@ -2,7 +2,7 @@ const webpack = require('webpack');
 const path = require('path');
 
 module.exports = {
-  entry: ['react-dev-utils/webpackHotDevClient', path.join(__dirname, '/web/src/index.jsx')],
+  entry: [path.join(__dirname, '/web/src/index.jsx')],
   output: {
     path: path.join(__dirname, '/web/public'),
     publicPath: '/',
