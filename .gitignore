@@ -1,5 +1,4 @@
 node_modules
-web/public
 yarn.lock
 yarn-error.log
 coverage
