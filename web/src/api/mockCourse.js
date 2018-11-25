@@ -3,15 +3,22 @@ const delay = 1000;
 // This file mocks a web API by working with the hard-coded data below.
 // It uses setTimeout to simulate the delay of an AJAX call.
 // All calls return promises.
-const courses = [
+export const courses = [
+  {
+    id: 'web-components-shadow-dom',
+    title: 'Web Component Fundamentals',
+    watchHref: 'http://www.pluralsight.com/courses/web-components-shadow-dom',
+    authorId: 'cory-house',
+    length: '5:10',
+    category: 'HTML5'
+  },
   {
     id: 'react-flux-building-applications',
     title: 'Building Applications in React and Flux',
     watchHref: 'http://www.pluralsight.com/courses/react-flux-building-applications',
     authorId: 'cory-house',
     length: '5:08',
-    category: 'JavaScript',
-    publishedDate: '2016'
+    category: 'JavaScript'
   },
   {
     id: 'clean-code',
@@ -28,8 +35,7 @@ const courses = [
     watchHref: 'http://www.pluralsight.com/courses/architecting-applications-dotnet',
     authorId: 'cory-house',
     length: '2:52',
-    category: 'Software Architecture',
-    publishedDate: '2017'
+    category: 'Software Architecture'
   },
   {
     id: 'career-reboot-for-developer-mind',
@@ -37,19 +43,10 @@ const courses = [
     watchHref: 'http://www.pluralsight.com/courses/career-reboot-for-developer-mind',
     authorId: 'cory-house',
     length: '2:30',
-    category: 'Career',
-    publishedDate: '2018'
-  },
-  {
-    id: 'web-components-shadow-dom',
-    title: 'Web Component Fundamentals',
-    watchHref: 'http://www.pluralsight.com/courses/web-components-shadow-dom',
-    authorId: 'cory-house',
-    length: '5:10',
-    category: 'HTML5',
-    publishedDate: '2017'
+    category: 'Career'
   }
 ];
+courses.sort((a, b) => (a.title.toLowerCase() > b.title.toLowerCase() ? 1 : -1));
 
 function replaceAll(str, find, replace) {
   return str.replace(new RegExp(find, 'g'), replace);
@@ -59,16 +56,38 @@ function replaceAll(str, find, replace) {
 const generateId = course => replaceAll(course.title, ' ', '-');
 
 class CourseApi {
-  static getAllCourses() {
+  static getCoursesByCourse(courseId, pageSize) {
+    const courseIndex = courses.findIndex(course => course.id === courseId);
+
+    if (courseIndex < 0) {
+      return new Promise((resolve, error) => error(new Error('404')));
+    }
+
+    const currentPage = Math.floor(courseIndex / pageSize) + 1;
+    return CourseApi.getCoursesByPage(currentPage, pageSize);
+  }
+
+  static getCoursesByPage(currentPage, pageSize) {
     return new Promise((resolve) => {
       setTimeout(() => {
-        resolve(Object.assign([], courses));
+        const allCourses = courses; // Todo: Refactor
+        let queriedCourses = allCourses;
+        const rightLeaf = currentPage * pageSize;
+        const leftLeaf = rightLeaf - pageSize;
+
+        if (currentPage > 0 && pageSize > 0) {
+          queriedCourses = allCourses.slice(leftLeaf, rightLeaf);
+        }
+
+        resolve(
+          Object.assign({}, { courses: queriedCourses, length: allCourses.length, currentPage })
+        );
       }, delay);
     });
   }
 
-  static saveCourse(course) {
-    course = Object.assign({}, course); // to avoid manipulating object passed in.
+  static saveCourse(pCourse) {
+    const course = Object.assign({}, pCourse); // to avoid manipulating object passed in.
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         // Simulate server-side validation
@@ -76,10 +95,10 @@ class CourseApi {
         if (course.title.length < minCourseTitleLength) {
           reject(new Error(`Title must be at least ${minCourseTitleLength} characters.`));
         }
-
+        let courseIndex = -1;
         if (course.id) {
-          const existingCourseIndex = courses.findIndex(a => a.id === course.id);
-          courses.splice(existingCourseIndex, 1, course);
+          courseIndex = courses.findIndex(a => a.id === course.id);
+          courses.splice(courseIndex, 1, course);
         } else {
           // Just simulating creation here.
           // The server would generate ids and watchHref's for new courses in a real app.
@@ -87,9 +106,11 @@ class CourseApi {
           course.id = generateId(course);
           course.watchHref = `http://www.pluralsight.com/courses/${course.id}`;
           courses.push(course);
+          courses.sort((a, b) => (a.title.toLowerCase() > b.title.toLowerCase() ? 1 : -1));
+          courseIndex = courses.findIndex(a => a.id === course.id);
         }
 
-        resolve(course);
+        resolve({ course, courseIndex });
       }, delay);
     });
   }

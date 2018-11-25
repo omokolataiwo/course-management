@@ -4,7 +4,7 @@ import { mount } from 'enzyme';
 import { AllCourses, mapStateToProps } from '../../src/components/course/AllCourses';
 
 const props = {
-  courses: [{ title: 'Dummy Title' }]
+  courses: [{ id: 'dt', title: 'Dummy Title' }]
 };
 
 const wrapper = mount(

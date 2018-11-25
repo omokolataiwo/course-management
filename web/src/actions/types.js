@@ -1,3 +1,20 @@
-export const FETCH_ALL_COURSES = 'FETCH_ALL_COURSES';
-export const NEW_COURSE_CREATED = 'NEW_COURSE_CREATED';
-export const CREATING_COURSE = 'CREATING_COURSE';
+export const FETCHNING_COURSES = Symbol('FETCHNING_COURSES');
+export const FETCH_ALL_COURSES = Symbol('FETCH_ALL_COURSES');
+export const NEW_COURSE_CREATED = Symbol('NEW_COURSE_CREATED');
+export const COURSE_UPDATED = Symbol('COURSE_UPDATED');
+export const CREATING_COURSE = Symbol('CREATING_COURSE');
+export const UPDATING_COURSE = Symbol('UPDATING_COURSE');
+export const FETCH_COURSE = Symbol('FETCH_COURSE');
+export const RESET_COURSE_EVENT = Symbol('RESET_COURSE_EVENT');
+export const DELETING_COURSE = Symbol('DELETING_COURSE');
+export const DELETE_COURSE = Symbol('DELETE_COURSE');
+
+export const FETCH_ALL_AUTHOR = Symbol('FETCH_ALL_AUTHOR');
+export const CREATE_AUTHOR = Symbol('CREATE_AUTHOR');
+export const CREATING_AUTHOR = Symbol('CREATING_AUTHOR');
+export const UPDATING_AUTHOR = Symbol('UPDATING_AUTHOR');
+export const UPDATE_AUTHOR = Symbol('UPDATE_AUTHOR');
+export const DELETE_AUTHOR = Symbol('DELETE_AUTHOR');
+export const DELETING_AUTHOR = Symbol('DELETING_AUTHOR');
+export const DELETE_AUTHOR_ERROR = Symbol('DELETE_AUTHOR_ERROR');
+export const RESET_AUTHOR_EVENT = Symbol('RESET_AUTHOR_EVENT');

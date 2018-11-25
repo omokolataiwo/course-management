@@ -1,8 +1,12 @@
-import { Link } from 'react-router-dom';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import Header from '../containers/Header';
+import CourseTableList from '../containers/CourseTableList';
+import { FETCHNING_COURSES, DELETE_COURSE, FETCH_ALL_COURSES } from '../../actions/types';
+import { deleteCourse, fetchAllCourses } from '../../actions/course';
+import Pagination from '../containers/Pagination';
+
+const PAGE_SIZE = 2;
 
 export class AllCourses extends Component {
   static propTypes = {
@@ -10,50 +14,145 @@ export class AllCourses extends Component {
       PropTypes.shape({
         title: PropTypes.string.isRequired
       })
-    ).isRequired
+    ).isRequired,
+    courseEvent: PropTypes.symbol,
+    deleteCourse: PropTypes.func.isRequired,
+    fetchAllCourses: PropTypes.func.isRequired,
+    currentPage: PropTypes.string.isRequired,
+    history: PropTypes.shape({ push: PropTypes.func.isRequired }).isRequired,
+    coursesSize: PropTypes.string.isRequired,
+    match: PropTypes.shape({ params: PropTypes.shape({ id: PropTypes.string }) }).isRequired,
+    authors: PropTypes.shape().isRequired
+  };
+
+  static defaultProps = {
+    courseEvent: Symbol('DEFAULT_EVENT')
   };
 
   state = {};
 
+  componentDidMount() {
+    const {
+      fetchAllCourses,
+      currentPage,
+      history: { push },
+      match: {
+        params: { page }
+      }
+    } = this.props;
+
+    if (page && isNaN(+page)) {
+      push('/404');
+    }
+
+    if (page && page !== currentPage) {
+      fetchAllCourses(Number(page) || 1, PAGE_SIZE);
+    }
+  }
+
+  componentDidUpdate() {
+    const {
+      courses,
+      currentPage,
+      courseEvent,
+      coursesSize,
+      history: { push },
+      match: {
+        params: { page }
+      }
+    } = this.props;
+
+    if (Math.ceil(coursesSize / PAGE_SIZE) < page) {
+      push('/404');
+    }
+    if (courseEvent !== FETCHNING_COURSES && !courses.length && currentPage > 1) {
+      this.fetchNextCourse(currentPage - 1, PAGE_SIZE);
+      return push(`/course/${currentPage - 1}`);
+    }
+
+    if (courseEvent === DELETE_COURSE) {
+      return this.fetchNextCourse(currentPage, PAGE_SIZE);
+    }
+
+    return null;
+  }
+
+  renderEmptyCourseList = () => <span>No registered course yet.</span>;
+
+  deleteCourse = (courseId) => {
+    const { deleteCourse } = this.props;
+    deleteCourse(courseId);
+  };
+
+  renderCourseList = () => {
+    const {
+      courses, courseEvent, authors, currentPage
+    } = this.props;
+
+    if (courseEvent === FETCH_ALL_COURSES && (!courses.length && currentPage === 1)) {
+      return this.renderEmptyCourseList();
+    }
+
+    const formattedAuthor = {};
+    authors.forEach((author) => {
+      formattedAuthor[author.id] = `${author.firstName} ${author.lastName}`;
+    });
+
+    return (
+      <CourseTableList
+        courses={courses}
+        authors={formattedAuthor}
+        deleteCourse={this.deleteCourse}
+      />
+    );
+  };
+
+  fetchNextCourse = (currentPage) => {
+    const { fetchAllCourses } = this.props;
+    fetchAllCourses(currentPage, PAGE_SIZE);
+  };
+
   render() {
-    const { courses } = this.props;
+    const { coursesSize, currentPage, courses } = this.props;
     return (
       <div>
-        <Header />
         <h2>Available Courses</h2>
-        <Link to="/course/add-course">New Course</Link>
+
         <div className="container">
-          <table className="table">
-            <thead>
-              <tr>
-                <th scope="col">Course Title</th>
-                <th>Author Name</th>
-                <th>Course Length</th>
-                <th>Published Date</th>
-              </tr>
-            </thead>
-            <tbody>
-              {courses.map((course, index) => (
-                <tr key={index} className="course">
-                  <td>{course.title}</td>
-                  <td>{course.authorId}</td>
-                  <td>{course.length}</td>
-                  <td>{course.publishedDate}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+          {this.renderCourseList()}
+          {courses.length ? (
+            <Pagination
+              onClick={this.fetchNextCourse}
+              totalItem={coursesSize}
+              pageSize={PAGE_SIZE}
+              currentPage={currentPage}
+            />
+          ) : null}
         </div>
       </div>
     );
   }
 }
 
-export const mapStateToProps = ({ course }) => {
+export const mapStateToProps = ({ course, author }) => {
   if (!course) {
     throw new Error('Course not in store');
   }
-  return ({ courses: course.courses || [] });
+  const {
+    courses, event: courseEvent, length: coursesSize, currentPage
+  } = course;
+  const { authors } = author;
+
+  return {
+    courses,
+    courseEvent,
+    coursesSize,
+    currentPage,
+    authors
+  };
 };
 
-export default connect(mapStateToProps)(AllCourses);
+export default connect(
+  mapStateToProps,
+  { deleteCourse, fetchAllCourses }
+)(AllCourses);
