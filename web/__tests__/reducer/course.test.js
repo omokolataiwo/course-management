@@ -22,12 +22,16 @@ describe('course.test Reducer', () => {
   });
 
   it('should update event for course', () => {
-    expect(course(undefined, { type: CREATING_COURSE })).toEqual({ courses: [], event: CREATING_COURSE });
+    expect(course(undefined, { type: CREATING_COURSE })).toEqual({
+      courses: [], event: CREATING_COURSE, currentPage: 1, length: 0
+    });
   });
-  it('should update add course to existing courses', () => {
+  it('should update and add course to existing courses', () => {
     expect(course(undefined, actions.createCourse)).toEqual({
       event: NEW_COURSE_CREATED,
-      courses: [actions.createCourse.course]
+      courses: [actions.createCourse.course],
+      currentPage: 1,
+      length: 0
     });
   });
 });

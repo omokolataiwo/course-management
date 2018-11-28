@@ -134,10 +134,7 @@ export class AllCourses extends Component {
   }
 }
 
-export const mapStateToProps = ({ course, author }) => {
-  if (!course) {
-    throw new Error('Course not in store');
-  }
+const mapStateToProps = ({ course, author }) => {
   const {
     courses, event: courseEvent, length: coursesSize, currentPage
   } = course;

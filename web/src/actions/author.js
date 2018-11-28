@@ -11,16 +11,14 @@ const deleteAuthorSuccess = authorId => ({ type: type.DELETE_AUTHOR, authorId })
 const deleteAuthorError = reason => ({ type: type.DELETE_AUTHOR_ERROR, reason });
 const reset = () => ({ type: type.RESET_AUTHOR_EVENT });
 
-export const fetchAllAuthors = () => (dispatch) => {
-  authorApi.getAllAuthors().then(authors => dispatch(fetchAuthorsSuccess(authors)));
-};
+export const fetchAllAuthors = () => dispatch => authorApi.getAllAuthors().then(authors => dispatch(fetchAuthorsSuccess(authors)));
 
 export const saveAuthor = authorDetails => (dispatch) => {
   const AUTHOR_ID = authorDetails.id;
 
   dispatch(AUTHOR_ID ? updatingAuthor() : creatingAuthor());
 
-  authorApi
+  return authorApi
     .saveAuthor(authorDetails)
     .then(author => dispatch(AUTHOR_ID
       ? updateAuthorSuccess(author)

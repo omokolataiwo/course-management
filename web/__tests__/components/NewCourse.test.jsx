@@ -12,7 +12,8 @@ const history = [];
 
 const props = {
   history: { push: jest.fn(url => history.push(url)) },
-  saveCourse: jest.fn(() => {})
+  saveCourse: jest.fn(() => {}),
+  currentPage: 1
 };
 
 const wrapper = mount(
@@ -23,21 +24,21 @@ const wrapper = mount(
 
 describe('NewCourse.test Component', () => {
   it('should render component', () => {
-    expect(wrapper.find('h4').text()).toEqual('Add New Course*');
+    expect(wrapper.find('h4').text()).toEqual('Add New Course');
   });
 
   it('should redirect to course index page when new course is created', () => {
     wrapper.setProps({
       children: cloneElement(wrapper.props().children, { courseEvent: NEW_COURSE_CREATED })
     });
-    expect(history.pop()).toEqual('/course');
+    expect(history.pop()).toEqual('/course/1');
   });
 
   it('should create course', () => {
     simulate(wrapper, 'change', 'title', 'New Course');
     simulate(wrapper, 'change', 'category', 'Motivation');
     simulate(wrapper, 'change', 'length', '12:00');
-    simulate(wrapper, 'change', 'author', 'Blec');
+    simulate(wrapper, 'change', 'authorId', 'Blec');
     expect(wrapper.find('NewCourse').state('course').title).toEqual('New Course');
     expect(wrapper.find('NewCourse').state('course').author).toEqual('Blec');
     simulate(wrapper, 'click', 'create-course-btn');

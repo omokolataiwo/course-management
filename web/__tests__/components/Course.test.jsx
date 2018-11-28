@@ -1,17 +1,18 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Course from '../../src/components/course/Index';
+import { CourseIndex } from '../../src/components/course/Index';
 
 const props = {
-  match: { path: '' }
+  match: { path: '' },
+  totalCourses: 7
 };
 
-const wrapper = shallow(<Course {...props} />);
+const wrapper = shallow(<CourseIndex {...props} />);
 
 describe('Course Component', () => {
   it('should render component', () => {
     const routes = wrapper.find('Route');
-    expect(routes.length).toEqual(3);
+    expect(routes.length).toEqual(7);
     expect(routes.last().prop('path')).toEqual('/');
   });
 });
