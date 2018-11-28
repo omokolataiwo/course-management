@@ -10,9 +10,7 @@ class PromptDialog extends Component {
   };
 
   componentDidMount() {
-    const { onSaveFormState } = this.props;
     window[Symbol.for('MODAL_UNSAVED_CHANGES')] = this.showModal;
-    window.onunload = onSaveFormState;
   }
 
   componentWillUnmount() {
@@ -25,9 +23,7 @@ class PromptDialog extends Component {
   };
 
   dialogAction = (proceed) => {
-    const { onSaveFormState } = this.props;
     if (proceed) {
-      onSaveFormState();
       return this.callback(true);
     }
 
