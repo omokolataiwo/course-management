@@ -32,7 +32,7 @@ export const fetchAllCourses = (currentPage, pageSize) => (dispatch) => {
 export const fetchCourse = (courseId, pageSize) => (dispatch) => {
   dispatch(fetchingCourses());
   return courseApi
-    .getCoursesByCourse(courseId, pageSize)
+    .getCoursesByCourseId(courseId, pageSize)
     .then(courses => dispatch(fetchAllCoursesSuccess(courses, courses.currentPage)));
 };
 

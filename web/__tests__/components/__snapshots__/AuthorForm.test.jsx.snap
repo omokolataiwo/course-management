@@ -1,0 +1,1540 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AuthorForm Component should render component 1`] = `
+ReactWrapper {
+  Symbol(enzyme.__unrendered__): <AuthorForm
+    author={
+      Object {
+        "firstName": "John",
+        "id": "john-martins",
+        "lastName": "Martins",
+      }
+    }
+    create={false}
+    errors={Object {}}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "function",
+    "props": Object {
+      "author": Object {
+        "firstName": "John",
+        "id": "john-martins",
+        "lastName": "Martins",
+      },
+      "create": false,
+      "errors": Object {},
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": <form>
+        <div
+          class="form-group col-md-12"
+        >
+          <label
+            for="firstName"
+          />
+          <input
+            class="form-control"
+            id="firstName"
+            name="firstName"
+            placeholder="First Name"
+            type="text"
+            value="John"
+          />
+          <div
+            class="error"
+          />
+        </div>
+        <div
+          class="form-group col-md-12"
+        >
+          <label
+            for="lastName"
+          />
+          <input
+            class="form-control"
+            id="lastName"
+            name="lastName"
+            placeholder="Last Name"
+            type="text"
+            value="Martins"
+          />
+          <div
+            class="error"
+          />
+        </div>
+        <button
+          class="btn btn-primary"
+          id="create-author-btn"
+          type="button"
+        >
+          Update 
+          Author
+        </button>
+      </form>,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <TextInput
+            errors={Array []}
+            name="firstName"
+            placeholder="First Name"
+            size="12"
+            value="John"
+          />,
+          <TextInput
+            errors={Array []}
+            name="lastName"
+            placeholder="Last Name"
+            size="12"
+            value="Martins"
+          />,
+          <button
+            className="btn btn-primary"
+            id="create-author-btn"
+            type="button"
+          >
+            Update 
+            Author
+          </button>,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "errors": Array [],
+            "name": "firstName",
+            "onChange": undefined,
+            "placeholder": "First Name",
+            "size": "12",
+            "value": "John",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": <div
+              class="form-group col-md-12"
+            >
+              <label
+                for="firstName"
+              />
+              <input
+                class="form-control"
+                id="firstName"
+                name="firstName"
+                placeholder="First Name"
+                type="text"
+                value="John"
+              />
+              <div
+                class="error"
+              />
+            </div>,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <label
+                  htmlFor="firstName"
+                />,
+                <input
+                  className="form-control"
+                  id="firstName"
+                  name="firstName"
+                  placeholder="First Name"
+                  type="text"
+                  value="John"
+                />,
+                <div
+                  className="error"
+                />,
+              ],
+              "className": "form-group col-md-12",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": <label
+                  for="firstName"
+                />,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": undefined,
+                  "htmlFor": "firstName",
+                },
+                "ref": null,
+                "rendered": Array [
+                  undefined,
+                ],
+                "type": "label",
+              },
+              Object {
+                "instance": <input
+                  class="form-control"
+                  id="firstName"
+                  name="firstName"
+                  placeholder="First Name"
+                  type="text"
+                  value="John"
+                />,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "className": "form-control",
+                  "id": "firstName",
+                  "name": "firstName",
+                  "onChange": undefined,
+                  "placeholder": "First Name",
+                  "type": "text",
+                  "value": "John",
+                },
+                "ref": null,
+                "rendered": Array [
+                  undefined,
+                ],
+                "type": "input",
+              },
+              Object {
+                "instance": <div
+                  class="error"
+                />,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [],
+                  "className": "error",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Array [],
+                ],
+                "type": "div",
+              },
+            ],
+            "type": "div",
+          },
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "errors": Array [],
+            "name": "lastName",
+            "onChange": undefined,
+            "placeholder": "Last Name",
+            "size": "12",
+            "value": "Martins",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": <div
+              class="form-group col-md-12"
+            >
+              <label
+                for="lastName"
+              />
+              <input
+                class="form-control"
+                id="lastName"
+                name="lastName"
+                placeholder="Last Name"
+                type="text"
+                value="Martins"
+              />
+              <div
+                class="error"
+              />
+            </div>,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <label
+                  htmlFor="lastName"
+                />,
+                <input
+                  className="form-control"
+                  id="lastName"
+                  name="lastName"
+                  placeholder="Last Name"
+                  type="text"
+                  value="Martins"
+                />,
+                <div
+                  className="error"
+                />,
+              ],
+              "className": "form-group col-md-12",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": <label
+                  for="lastName"
+                />,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": undefined,
+                  "htmlFor": "lastName",
+                },
+                "ref": null,
+                "rendered": Array [
+                  undefined,
+                ],
+                "type": "label",
+              },
+              Object {
+                "instance": <input
+                  class="form-control"
+                  id="lastName"
+                  name="lastName"
+                  placeholder="Last Name"
+                  type="text"
+                  value="Martins"
+                />,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "className": "form-control",
+                  "id": "lastName",
+                  "name": "lastName",
+                  "onChange": undefined,
+                  "placeholder": "Last Name",
+                  "type": "text",
+                  "value": "Martins",
+                },
+                "ref": null,
+                "rendered": Array [
+                  undefined,
+                ],
+                "type": "input",
+              },
+              Object {
+                "instance": <div
+                  class="error"
+                />,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [],
+                  "className": "error",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Array [],
+                ],
+                "type": "div",
+              },
+            ],
+            "type": "div",
+          },
+          "type": [Function],
+        },
+        Object {
+          "instance": <button
+            class="btn btn-primary"
+            id="create-author-btn"
+            type="button"
+          >
+            Update 
+            Author
+          </button>,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "Update ",
+              "Author",
+            ],
+            "className": "btn btn-primary",
+            "id": "create-author-btn",
+            "onClick": undefined,
+            "type": "button",
+          },
+          "ref": null,
+          "rendered": Array [
+            "Update ",
+            "Author",
+          ],
+          "type": "button",
+        },
+      ],
+      "type": "form",
+    },
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "author": Object {
+          "firstName": "John",
+          "id": "john-martins",
+          "lastName": "Martins",
+        },
+        "create": false,
+        "errors": Object {},
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": <form>
+          <div
+            class="form-group col-md-12"
+          >
+            <label
+              for="firstName"
+            />
+            <input
+              class="form-control"
+              id="firstName"
+              name="firstName"
+              placeholder="First Name"
+              type="text"
+              value="John"
+            />
+            <div
+              class="error"
+            />
+          </div>
+          <div
+            class="form-group col-md-12"
+          >
+            <label
+              for="lastName"
+            />
+            <input
+              class="form-control"
+              id="lastName"
+              name="lastName"
+              placeholder="Last Name"
+              type="text"
+              value="Martins"
+            />
+            <div
+              class="error"
+            />
+          </div>
+          <button
+            class="btn btn-primary"
+            id="create-author-btn"
+            type="button"
+          >
+            Update 
+            Author
+          </button>
+        </form>,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <TextInput
+              errors={Array []}
+              name="firstName"
+              placeholder="First Name"
+              size="12"
+              value="John"
+            />,
+            <TextInput
+              errors={Array []}
+              name="lastName"
+              placeholder="Last Name"
+              size="12"
+              value="Martins"
+            />,
+            <button
+              className="btn btn-primary"
+              id="create-author-btn"
+              type="button"
+            >
+              Update 
+              Author
+            </button>,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "errors": Array [],
+              "name": "firstName",
+              "onChange": undefined,
+              "placeholder": "First Name",
+              "size": "12",
+              "value": "John",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": <div
+                class="form-group col-md-12"
+              >
+                <label
+                  for="firstName"
+                />
+                <input
+                  class="form-control"
+                  id="firstName"
+                  name="firstName"
+                  placeholder="First Name"
+                  type="text"
+                  value="John"
+                />
+                <div
+                  class="error"
+                />
+              </div>,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <label
+                    htmlFor="firstName"
+                  />,
+                  <input
+                    className="form-control"
+                    id="firstName"
+                    name="firstName"
+                    placeholder="First Name"
+                    type="text"
+                    value="John"
+                  />,
+                  <div
+                    className="error"
+                  />,
+                ],
+                "className": "form-group col-md-12",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": <label
+                    for="firstName"
+                  />,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": undefined,
+                    "htmlFor": "firstName",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    undefined,
+                  ],
+                  "type": "label",
+                },
+                Object {
+                  "instance": <input
+                    class="form-control"
+                    id="firstName"
+                    name="firstName"
+                    placeholder="First Name"
+                    type="text"
+                    value="John"
+                  />,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "className": "form-control",
+                    "id": "firstName",
+                    "name": "firstName",
+                    "onChange": undefined,
+                    "placeholder": "First Name",
+                    "type": "text",
+                    "value": "John",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    undefined,
+                  ],
+                  "type": "input",
+                },
+                Object {
+                  "instance": <div
+                    class="error"
+                  />,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [],
+                    "className": "error",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Array [],
+                  ],
+                  "type": "div",
+                },
+              ],
+              "type": "div",
+            },
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "errors": Array [],
+              "name": "lastName",
+              "onChange": undefined,
+              "placeholder": "Last Name",
+              "size": "12",
+              "value": "Martins",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": <div
+                class="form-group col-md-12"
+              >
+                <label
+                  for="lastName"
+                />
+                <input
+                  class="form-control"
+                  id="lastName"
+                  name="lastName"
+                  placeholder="Last Name"
+                  type="text"
+                  value="Martins"
+                />
+                <div
+                  class="error"
+                />
+              </div>,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <label
+                    htmlFor="lastName"
+                  />,
+                  <input
+                    className="form-control"
+                    id="lastName"
+                    name="lastName"
+                    placeholder="Last Name"
+                    type="text"
+                    value="Martins"
+                  />,
+                  <div
+                    className="error"
+                  />,
+                ],
+                "className": "form-group col-md-12",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": <label
+                    for="lastName"
+                  />,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": undefined,
+                    "htmlFor": "lastName",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    undefined,
+                  ],
+                  "type": "label",
+                },
+                Object {
+                  "instance": <input
+                    class="form-control"
+                    id="lastName"
+                    name="lastName"
+                    placeholder="Last Name"
+                    type="text"
+                    value="Martins"
+                  />,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "className": "form-control",
+                    "id": "lastName",
+                    "name": "lastName",
+                    "onChange": undefined,
+                    "placeholder": "Last Name",
+                    "type": "text",
+                    "value": "Martins",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    undefined,
+                  ],
+                  "type": "input",
+                },
+                Object {
+                  "instance": <div
+                    class="error"
+                  />,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [],
+                    "className": "error",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Array [],
+                  ],
+                  "type": "div",
+                },
+              ],
+              "type": "div",
+            },
+            "type": [Function],
+          },
+          Object {
+            "instance": <button
+              class="btn btn-primary"
+              id="create-author-btn"
+              type="button"
+            >
+              Update 
+              Author
+            </button>,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                "Update ",
+                "Author",
+              ],
+              "className": "btn btn-primary",
+              "id": "create-author-btn",
+              "onClick": undefined,
+              "type": "button",
+            },
+            "ref": null,
+            "rendered": Array [
+              "Update ",
+              "Author",
+            ],
+            "type": "button",
+          },
+        ],
+        "type": "form",
+      },
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`AuthorForm Component should render creating button 1`] = `
+ReactWrapper {
+  Symbol(enzyme.__unrendered__): <AuthorForm
+    author={
+      Object {
+        "firstName": "John",
+        "id": "john-martins",
+        "lastName": "Martins",
+      }
+    }
+    authorEvent={Symbol(CREATING_AUTHOR)}
+    create={false}
+    errors={Object {}}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "function",
+    "props": Object {
+      "author": Object {
+        "firstName": "John",
+        "id": "john-martins",
+        "lastName": "Martins",
+      },
+      "authorEvent": Symbol(CREATING_AUTHOR),
+      "create": false,
+      "errors": Object {},
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": <form>
+        <div
+          class="form-group col-md-12"
+        >
+          <label
+            for="firstName"
+          />
+          <input
+            class="form-control"
+            id="firstName"
+            name="firstName"
+            placeholder="First Name"
+            type="text"
+            value="John"
+          />
+          <div
+            class="error"
+          />
+        </div>
+        <div
+          class="form-group col-md-12"
+        >
+          <label
+            for="lastName"
+          />
+          <input
+            class="form-control"
+            id="lastName"
+            name="lastName"
+            placeholder="Last Name"
+            type="text"
+            value="Martins"
+          />
+          <div
+            class="error"
+          />
+        </div>
+        <button
+          class="btn btn-primary"
+          disabled=""
+          id="create-author-btn"
+          type="button"
+        >
+          Creating 
+          Author
+        </button>
+      </form>,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <TextInput
+            errors={Array []}
+            name="firstName"
+            placeholder="First Name"
+            size="12"
+            value="John"
+          />,
+          <TextInput
+            errors={Array []}
+            name="lastName"
+            placeholder="Last Name"
+            size="12"
+            value="Martins"
+          />,
+          <button
+            className="btn btn-primary"
+            disabled={true}
+            id="create-author-btn"
+            type="button"
+          >
+            Creating 
+            Author
+          </button>,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "errors": Array [],
+            "name": "firstName",
+            "onChange": undefined,
+            "placeholder": "First Name",
+            "size": "12",
+            "value": "John",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": <div
+              class="form-group col-md-12"
+            >
+              <label
+                for="firstName"
+              />
+              <input
+                class="form-control"
+                id="firstName"
+                name="firstName"
+                placeholder="First Name"
+                type="text"
+                value="John"
+              />
+              <div
+                class="error"
+              />
+            </div>,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <label
+                  htmlFor="firstName"
+                />,
+                <input
+                  className="form-control"
+                  id="firstName"
+                  name="firstName"
+                  placeholder="First Name"
+                  type="text"
+                  value="John"
+                />,
+                <div
+                  className="error"
+                />,
+              ],
+              "className": "form-group col-md-12",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": <label
+                  for="firstName"
+                />,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": undefined,
+                  "htmlFor": "firstName",
+                },
+                "ref": null,
+                "rendered": Array [
+                  undefined,
+                ],
+                "type": "label",
+              },
+              Object {
+                "instance": <input
+                  class="form-control"
+                  id="firstName"
+                  name="firstName"
+                  placeholder="First Name"
+                  type="text"
+                  value="John"
+                />,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "className": "form-control",
+                  "id": "firstName",
+                  "name": "firstName",
+                  "onChange": undefined,
+                  "placeholder": "First Name",
+                  "type": "text",
+                  "value": "John",
+                },
+                "ref": null,
+                "rendered": Array [
+                  undefined,
+                ],
+                "type": "input",
+              },
+              Object {
+                "instance": <div
+                  class="error"
+                />,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [],
+                  "className": "error",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Array [],
+                ],
+                "type": "div",
+              },
+            ],
+            "type": "div",
+          },
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "errors": Array [],
+            "name": "lastName",
+            "onChange": undefined,
+            "placeholder": "Last Name",
+            "size": "12",
+            "value": "Martins",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": <div
+              class="form-group col-md-12"
+            >
+              <label
+                for="lastName"
+              />
+              <input
+                class="form-control"
+                id="lastName"
+                name="lastName"
+                placeholder="Last Name"
+                type="text"
+                value="Martins"
+              />
+              <div
+                class="error"
+              />
+            </div>,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <label
+                  htmlFor="lastName"
+                />,
+                <input
+                  className="form-control"
+                  id="lastName"
+                  name="lastName"
+                  placeholder="Last Name"
+                  type="text"
+                  value="Martins"
+                />,
+                <div
+                  className="error"
+                />,
+              ],
+              "className": "form-group col-md-12",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": <label
+                  for="lastName"
+                />,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": undefined,
+                  "htmlFor": "lastName",
+                },
+                "ref": null,
+                "rendered": Array [
+                  undefined,
+                ],
+                "type": "label",
+              },
+              Object {
+                "instance": <input
+                  class="form-control"
+                  id="lastName"
+                  name="lastName"
+                  placeholder="Last Name"
+                  type="text"
+                  value="Martins"
+                />,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "className": "form-control",
+                  "id": "lastName",
+                  "name": "lastName",
+                  "onChange": undefined,
+                  "placeholder": "Last Name",
+                  "type": "text",
+                  "value": "Martins",
+                },
+                "ref": null,
+                "rendered": Array [
+                  undefined,
+                ],
+                "type": "input",
+              },
+              Object {
+                "instance": <div
+                  class="error"
+                />,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [],
+                  "className": "error",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Array [],
+                ],
+                "type": "div",
+              },
+            ],
+            "type": "div",
+          },
+          "type": [Function],
+        },
+        Object {
+          "instance": <button
+            class="btn btn-primary"
+            disabled=""
+            id="create-author-btn"
+            type="button"
+          >
+            Creating 
+            Author
+          </button>,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "Creating ",
+              "Author",
+            ],
+            "className": "btn btn-primary",
+            "disabled": true,
+            "id": "create-author-btn",
+            "onClick": undefined,
+            "type": "button",
+          },
+          "ref": null,
+          "rendered": Array [
+            "Creating ",
+            "Author",
+          ],
+          "type": "button",
+        },
+      ],
+      "type": "form",
+    },
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "author": Object {
+          "firstName": "John",
+          "id": "john-martins",
+          "lastName": "Martins",
+        },
+        "authorEvent": Symbol(CREATING_AUTHOR),
+        "create": false,
+        "errors": Object {},
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": <form>
+          <div
+            class="form-group col-md-12"
+          >
+            <label
+              for="firstName"
+            />
+            <input
+              class="form-control"
+              id="firstName"
+              name="firstName"
+              placeholder="First Name"
+              type="text"
+              value="John"
+            />
+            <div
+              class="error"
+            />
+          </div>
+          <div
+            class="form-group col-md-12"
+          >
+            <label
+              for="lastName"
+            />
+            <input
+              class="form-control"
+              id="lastName"
+              name="lastName"
+              placeholder="Last Name"
+              type="text"
+              value="Martins"
+            />
+            <div
+              class="error"
+            />
+          </div>
+          <button
+            class="btn btn-primary"
+            disabled=""
+            id="create-author-btn"
+            type="button"
+          >
+            Creating 
+            Author
+          </button>
+        </form>,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <TextInput
+              errors={Array []}
+              name="firstName"
+              placeholder="First Name"
+              size="12"
+              value="John"
+            />,
+            <TextInput
+              errors={Array []}
+              name="lastName"
+              placeholder="Last Name"
+              size="12"
+              value="Martins"
+            />,
+            <button
+              className="btn btn-primary"
+              disabled={true}
+              id="create-author-btn"
+              type="button"
+            >
+              Creating 
+              Author
+            </button>,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "errors": Array [],
+              "name": "firstName",
+              "onChange": undefined,
+              "placeholder": "First Name",
+              "size": "12",
+              "value": "John",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": <div
+                class="form-group col-md-12"
+              >
+                <label
+                  for="firstName"
+                />
+                <input
+                  class="form-control"
+                  id="firstName"
+                  name="firstName"
+                  placeholder="First Name"
+                  type="text"
+                  value="John"
+                />
+                <div
+                  class="error"
+                />
+              </div>,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <label
+                    htmlFor="firstName"
+                  />,
+                  <input
+                    className="form-control"
+                    id="firstName"
+                    name="firstName"
+                    placeholder="First Name"
+                    type="text"
+                    value="John"
+                  />,
+                  <div
+                    className="error"
+                  />,
+                ],
+                "className": "form-group col-md-12",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": <label
+                    for="firstName"
+                  />,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": undefined,
+                    "htmlFor": "firstName",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    undefined,
+                  ],
+                  "type": "label",
+                },
+                Object {
+                  "instance": <input
+                    class="form-control"
+                    id="firstName"
+                    name="firstName"
+                    placeholder="First Name"
+                    type="text"
+                    value="John"
+                  />,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "className": "form-control",
+                    "id": "firstName",
+                    "name": "firstName",
+                    "onChange": undefined,
+                    "placeholder": "First Name",
+                    "type": "text",
+                    "value": "John",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    undefined,
+                  ],
+                  "type": "input",
+                },
+                Object {
+                  "instance": <div
+                    class="error"
+                  />,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [],
+                    "className": "error",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Array [],
+                  ],
+                  "type": "div",
+                },
+              ],
+              "type": "div",
+            },
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "errors": Array [],
+              "name": "lastName",
+              "onChange": undefined,
+              "placeholder": "Last Name",
+              "size": "12",
+              "value": "Martins",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": <div
+                class="form-group col-md-12"
+              >
+                <label
+                  for="lastName"
+                />
+                <input
+                  class="form-control"
+                  id="lastName"
+                  name="lastName"
+                  placeholder="Last Name"
+                  type="text"
+                  value="Martins"
+                />
+                <div
+                  class="error"
+                />
+              </div>,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <label
+                    htmlFor="lastName"
+                  />,
+                  <input
+                    className="form-control"
+                    id="lastName"
+                    name="lastName"
+                    placeholder="Last Name"
+                    type="text"
+                    value="Martins"
+                  />,
+                  <div
+                    className="error"
+                  />,
+                ],
+                "className": "form-group col-md-12",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": <label
+                    for="lastName"
+                  />,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": undefined,
+                    "htmlFor": "lastName",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    undefined,
+                  ],
+                  "type": "label",
+                },
+                Object {
+                  "instance": <input
+                    class="form-control"
+                    id="lastName"
+                    name="lastName"
+                    placeholder="Last Name"
+                    type="text"
+                    value="Martins"
+                  />,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "className": "form-control",
+                    "id": "lastName",
+                    "name": "lastName",
+                    "onChange": undefined,
+                    "placeholder": "Last Name",
+                    "type": "text",
+                    "value": "Martins",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    undefined,
+                  ],
+                  "type": "input",
+                },
+                Object {
+                  "instance": <div
+                    class="error"
+                  />,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [],
+                    "className": "error",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Array [],
+                  ],
+                  "type": "div",
+                },
+              ],
+              "type": "div",
+            },
+            "type": [Function],
+          },
+          Object {
+            "instance": <button
+              class="btn btn-primary"
+              disabled=""
+              id="create-author-btn"
+              type="button"
+            >
+              Creating 
+              Author
+            </button>,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                "Creating ",
+                "Author",
+              ],
+              "className": "btn btn-primary",
+              "disabled": true,
+              "id": "create-author-btn",
+              "onClick": undefined,
+              "type": "button",
+            },
+            "ref": null,
+            "rendered": Array [
+              "Creating ",
+              "Author",
+            ],
+            "type": "button",
+          },
+        ],
+        "type": "form",
+      },
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;

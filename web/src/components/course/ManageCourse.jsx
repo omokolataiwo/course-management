@@ -16,7 +16,7 @@ export class ManageCourse extends Component {
       params: PropTypes.shape({ id: PropTypes.string.isRequired }).isRequired
     }).isRequired,
     history: PropTypes.shape({ push: PropTypes.func.isRequired }).isRequired,
-    courseEvent: PropTypes.string,
+    courseEvent: PropTypes.symbol,
     course: PropTypes.shape({
       id: PropTypes.string,
       title: PropTypes.string,
@@ -61,11 +61,7 @@ export class ManageCourse extends Component {
     if (!course.title.length && id) {
       return fetchCourse(id, PAGE_SIZE);
     }
-    const unsavedChanges = localStorage.getItem('UNSAVED_CHANGES');
 
-    if (unsavedChanges) {
-      this.reloadUnsavedChanges(unsavedChanges, course);
-    }
     return null;
   }
 
@@ -89,12 +85,6 @@ export class ManageCourse extends Component {
 
     if (courseEvent === FETCH_ALL_COURSES && !course.title.length) {
       push('/404');
-    }
-
-    const unsavedChanges = localStorage.getItem('UNSAVED_CHANGES');
-
-    if (unsavedChanges && nextProps.courseEvent === FETCH_ALL_COURSES) {
-      this.reloadUnsavedChanges(unsavedChanges, course);
     }
 
     return null;
@@ -136,31 +126,6 @@ export class ManageCourse extends Component {
     return !!Object.keys(course).filter(key => course[key] !== loadedCourse[key]).length;
   };
 
-  savePersistedFormState = () => {
-    if (this.isDirty()) {
-      const { course } = this.state;
-      const keys = Object.keys(course);
-      const state = keys.map(key => `${key}<*>${course[key]}`).join('<>');
-
-      return localStorage.setItem('UNSAVED_CHANGES', state);
-    }
-    return null;
-  };
-
-  reloadUnsavedChanges = (unsavedChanges, course) => {
-    const unsavedChangesObject = {};
-    unsavedChanges.split('<>').forEach((entry) => {
-      const [key, value] = entry.split('<*>');
-      unsavedChangesObject[key] = value;
-    });
-
-    this.setState(() => ({
-      course: unsavedChangesObject.id === course.id ? unsavedChangesObject : course
-    }));
-
-    localStorage.removeItem('UNSAVED_CHANGES');
-  };
-
   render() {
     const { course, errors } = this.state;
     const { authors, courseEvent } = this.props;
@@ -169,7 +134,7 @@ export class ManageCourse extends Component {
       <div>
         <div className="container">
           <h4>Manage Course*</h4>
-          <PromptDialog when={this.isDirty()} onSaveFormState={this.savePersistedFormState} />
+          <PromptDialog when={this.isDirty()} />
           <CourseForm
             errors={errors}
             course={course}

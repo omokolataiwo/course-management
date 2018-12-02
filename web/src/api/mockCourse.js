@@ -56,7 +56,7 @@ function replaceAll(str, find, replace) {
 const generateId = course => replaceAll(course.title, ' ', '-');
 
 class CourseApi {
-  static getCoursesByCourse(courseId, pageSize) {
+  static getCoursesByCourseId(courseId, pageSize) {
     const courseIndex = courses.findIndex(course => course.id === courseId);
 
     if (courseIndex < 0) {
@@ -64,6 +64,7 @@ class CourseApi {
     }
 
     const currentPage = Math.floor(courseIndex / pageSize) + 1;
+
     return CourseApi.getCoursesByPage(currentPage, pageSize);
   }
 

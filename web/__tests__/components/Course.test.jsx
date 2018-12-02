@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { CourseIndex } from '../../src/components/course/Index';
+import { CourseIndex, mapStateToProps } from '../../src/components/course/Index';
 
 const props = {
   match: { path: '' },
@@ -14,5 +14,9 @@ describe('Course Component', () => {
     const routes = wrapper.find('Route');
     expect(routes.length).toEqual(7);
     expect(routes.last().prop('path')).toEqual('/');
+  });
+
+  it('should map store to props', () => {
+    expect(mapStateToProps({ course: { length: 3 } })).toEqual({ totalCourses: 3 });
   });
 });

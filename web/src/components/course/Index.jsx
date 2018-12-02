@@ -39,5 +39,5 @@ CourseIndex.propTypes = {
   match: PropTypes.shape({ path: PropTypes.string.isRequired }).isRequired,
   totalCourses: PropTypes.number.isRequired
 };
-const mapStateToProps = ({ course: { length: totalCourses } }) => ({ totalCourses });
+export const mapStateToProps = ({ course: { length: totalCourses } }) => ({ totalCourses });
 export default connect(mapStateToProps)(CourseIndex);

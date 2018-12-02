@@ -13,7 +13,17 @@ const history = [];
 const props = {
   history: { push: jest.fn(url => history.push(url)) },
   saveCourse: jest.fn(() => {}),
-  currentPage: 1
+  currentPage: 1,
+  authors: [
+    {
+      key: 'jmax',
+      value: 'John Maxwel'
+    },
+    {
+      key: 'tmountain',
+      value: 'Toni Mountain'
+    }
+  ]
 };
 
 const wrapper = mount(
@@ -22,7 +32,7 @@ const wrapper = mount(
   </BrowserRouter>
 );
 
-describe('NewCourse.test Component', () => {
+describe('NewCourse Component', () => {
   it('should render component', () => {
     expect(wrapper.find('h4').text()).toEqual('Add New Course');
   });
@@ -31,19 +41,30 @@ describe('NewCourse.test Component', () => {
     wrapper.setProps({
       children: cloneElement(wrapper.props().children, { courseEvent: NEW_COURSE_CREATED })
     });
+
     expect(history.pop()).toEqual('/course/1');
+  });
+
+  it('should not create form with invalid form fields', () => {
+    simulate(wrapper, 'click', 'create-course-btn');
+    const newCourse = wrapper
+      .children()
+      .children();
+
+    expect(newCourse.state().errors.title).toEqual(['Title is too short']);
   });
 
   it('should create course', () => {
     simulate(wrapper, 'change', 'title', 'New Course');
     simulate(wrapper, 'change', 'category', 'Motivation');
     simulate(wrapper, 'change', 'length', '12:00');
-    simulate(wrapper, 'change', 'authorId', 'Blec');
+    simulate(wrapper, 'change', 'authorId', 'tmountain');
     expect(wrapper.find('NewCourse').state('course').title).toEqual('New Course');
-    expect(wrapper.find('NewCourse').state('course').author).toEqual('Blec');
+    expect(wrapper.find('NewCourse').state('course').authorId).toEqual('tmountain');
+
     simulate(wrapper, 'click', 'create-course-btn');
     expect(props.saveCourse).toHaveBeenCalledWith({
-      author: 'Blec',
+      authorId: 'tmountain',
       category: 'Motivation',
       length: '12:00',
       title: 'New Course'
@@ -51,6 +72,28 @@ describe('NewCourse.test Component', () => {
   });
 
   it('should map state', () => {
-    expect(mapStateToProps({ course: { event: CREATING_COURSE } })).toEqual({ courseEvent: CREATING_COURSE });
+    expect(
+      mapStateToProps({
+        course: { event: CREATING_COURSE, currentPage: 1 },
+        author: {
+          authors: [
+            {
+              id: 'tmountain',
+              firstName: 'Toni',
+              lastName: 'Mountain'
+            }
+          ]
+        }
+      })
+    ).toEqual({
+      courseEvent: CREATING_COURSE,
+      authors: [
+        {
+          key: 'tmountain',
+          value: 'Toni Mountain'
+        }
+      ],
+      currentPage: 1
+    });
   });
 });
