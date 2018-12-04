@@ -7,12 +7,14 @@
   "license": "MIT",
   "private": false,
   "scripts": {
+    "postinstall": "npm run build",
+    "build": "webpack --config webpack.config.js -p",
     "start": "node serve.js",
     "webpack:dev": "webpack-dev-server --config webpack.config.js --mode development",
     "all": "npm-run-all --parallel lint:watch webpack:dev \"test -- --watch\"",
     "lint": "node_modules/.bin/esw web/src",
     "lint:watch": "sane \"node_modules/.bin/esw web/src\" \"web/src\"",
-    "test": "jest"
+    "test": "jest --updateSnapshot && codecov -t 6ca7b775-fbde-47d2-8f36-f8b0db99f622"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.8",
@@ -81,7 +83,7 @@
         "branches": 80,
         "functions": 80,
         "lines": 80,
-        "statements": -10
+        "statements": -20
       }
     },
     "bail": true,
