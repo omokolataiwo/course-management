@@ -47,8 +47,7 @@ CourseTableList.propTypes = {
     PropTypes.shape({
       title: PropTypes.string.isRequired,
       authorId: PropTypes.string.isRequired,
-      length: PropTypes.string.isRequired,
-      publishedDate: PropTypes.string.isRequired
+      length: PropTypes.string.isRequired
     })
   ),
   deleteCourse: PropTypes.func.isRequired

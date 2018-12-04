@@ -26,8 +26,7 @@ export class NewCourse extends Component {
       length: '',
       authorId: ''
     },
-    errors: {},
-    unsavedChanges: false
+    errors: {}
   };
 
   componentDidUpdate() {
@@ -63,7 +62,7 @@ export class NewCourse extends Component {
   };
 
   render() {
-    const { course, errors, unsavedChanges } = this.state;
+    const { course, errors } = this.state;
     const { authors, courseEvent } = this.props;
 
     return (

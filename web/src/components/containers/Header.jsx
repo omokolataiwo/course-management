@@ -1,9 +1,8 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PluraSightLogo from '../../images/plurasight-logo.png';
 
-const Header = ({ coursesLength }) => (
+export const Header = ({ coursesLength }) => (
   <nav className="navbar navbar-expand-lg navbar-dark" style={{ backgroundColor: '#010101' }}>
     <Link className="navbar-brand" to="/">
       <img src={PluraSightLogo} alt="PluraSight Logo" />
@@ -44,4 +43,4 @@ Courses
   </nav>
 );
 
-export default connect(({ course: { length: coursesLength } }) => ({ coursesLength }))(Header);
+export default Header;

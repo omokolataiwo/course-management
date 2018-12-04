@@ -5,7 +5,7 @@ import { deleteAuthor, resetAuthorEvent } from '../../actions/author';
 import AuthorTableList from '../containers/AuthorTableList';
 import { DELETE_AUTHOR_ERROR, DELETE_AUTHOR } from '../../actions/types';
 
-class AuthorList extends Component {
+export class AuthorList extends Component {
   state = {};
 
   static defaultProps = {

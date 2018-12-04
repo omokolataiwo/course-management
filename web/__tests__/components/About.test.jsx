@@ -1,9 +1,16 @@
 import React from 'react';
-import { mount } from 'enzyme';
-import { BrowserRouter } from 'react-router-dom';
+import { shallow } from 'enzyme';
 import About from '../../src/components/pages/About';
 
-const wrapper = mount(<BrowserRouter><About /></BrowserRouter>);
+const store = {
+  subscribe: jest.fn(() => {}),
+  dispatch: jest.fn(() => {}),
+  getState: jest.fn(() => ({ course: {} }))
+};
+
+const wrapper = shallow(
+  <About store={store} />
+).dive();
 
 describe('About Component', () => {
   it('should render component', () => {

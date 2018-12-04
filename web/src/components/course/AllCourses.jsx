@@ -22,7 +22,7 @@ export class AllCourses extends Component {
     history: PropTypes.shape({ push: PropTypes.func.isRequired }).isRequired,
     coursesSize: PropTypes.string.isRequired,
     match: PropTypes.shape({ params: PropTypes.shape({ id: PropTypes.string }) }).isRequired,
-    authors: PropTypes.shape().isRequired
+    authors: PropTypes.arrayOf(PropTypes.shape()).isRequired
   };
 
   static defaultProps = {
@@ -46,7 +46,7 @@ export class AllCourses extends Component {
     }
 
     if (page && page !== currentPage) {
-      fetchAllCourses(Number(page) || 1, PAGE_SIZE);
+      fetchAllCourses(page, PAGE_SIZE);
     }
   }
 
@@ -89,7 +89,7 @@ export class AllCourses extends Component {
       courses, courseEvent, authors, currentPage
     } = this.props;
 
-    if (courseEvent === FETCH_ALL_COURSES && (!courses.length && currentPage === 1)) {
+    if (courseEvent === FETCH_ALL_COURSES && (!courses.length && +currentPage === 1)) {
       return this.renderEmptyCourseList();
     }
 
@@ -113,7 +113,9 @@ export class AllCourses extends Component {
   };
 
   render() {
-    const { coursesSize, currentPage, courses } = this.props;
+    let { coursesSize, currentPage, courses } = this.props;
+    currentPage = +currentPage;
+    coursesSize = +coursesSize;
     return (
       <div>
         <h2>Available Courses</h2>
@@ -134,10 +136,7 @@ export class AllCourses extends Component {
   }
 }
 
-export const mapStateToProps = ({ course, author }) => {
-  if (!course) {
-    throw new Error('Course not in store');
-  }
+const mapStateToProps = ({ course, author }) => {
   const {
     courses, event: courseEvent, length: coursesSize, currentPage
   } = course;

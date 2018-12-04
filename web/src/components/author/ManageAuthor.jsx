@@ -7,7 +7,7 @@ import AuthorForm from '../containers/AuthorForm';
 import { saveAuthor, resetAuthorEvent } from '../../actions/author';
 import { UPDATE_AUTHOR } from '../../actions/types';
 
-class ManageAuthor extends Component {
+export class ManageAuthor extends Component {
   static defaultProps = {
     author: {
       firstName: '',
@@ -88,7 +88,7 @@ class ManageAuthor extends Component {
 
 const findAuthor = (authors, id) => authors.find(author => author.id === id);
 
-const mapStateToProps = (state, props) => {
+export const mapStateToProps = (state, props) => {
   const {
     author: { authors, event: authorEvent }
   } = state;

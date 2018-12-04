@@ -7,7 +7,7 @@ import AuthorForm from '../containers/AuthorForm';
 import { saveAuthor, resetAuthorEvent } from '../../actions/author';
 import { CREATE_AUTHOR } from '../../actions/types';
 
-class AddAuthor extends Component {
+export class AddAuthor extends Component {
   static propTypes = {
     saveAuthor: PropTypes.func.isRequired,
     history: PropTypes.shape({ push: PropTypes.func.isRequired }).isRequired,

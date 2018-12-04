@@ -1,16 +1,11 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
-import { mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import Home from '../../src/components/pages/Home';
 
-const wrapper = mount(
-  <BrowserRouter>
-    <Home />
-  </BrowserRouter>
-);
+const wrapper = shallow(<Home />);
 
 describe('Home', () => {
   it('should render Home component', () => {
-    expect(wrapper.find('h2').text()).toEqual('Course Management');
+    expect(wrapper.find('h1').text()).toEqual('Plurasight Administration');
   });
 });

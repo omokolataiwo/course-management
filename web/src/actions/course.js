@@ -24,15 +24,15 @@ const deleteCourseSuccess = courseId => ({ type: type.DELETE_COURSE, courseId })
 export const fetchAllCourses = (currentPage, pageSize) => (dispatch) => {
   dispatch(fetchingCourses());
 
-  courseApi
+  return courseApi
     .getCoursesByPage(currentPage, pageSize)
     .then(courses => dispatch(fetchAllCoursesSuccess(courses, currentPage || 1)));
 };
 
 export const fetchCourse = (courseId, pageSize) => (dispatch) => {
   dispatch(fetchingCourses());
-  courseApi
-    .getCoursesByCourse(courseId, pageSize)
+  return courseApi
+    .getCoursesByCourseId(courseId, pageSize)
     .then(courses => dispatch(fetchAllCoursesSuccess(courses, courses.currentPage)));
 };
 

@@ -6,7 +6,13 @@ const SelectInput = ({
 }) => (
   <div className={`col-md-${size} form-group`}>
     <label htmlFor={name}>{label}</label>
-    <select className="form-control" value={value} onChange={onChange} name={name} id={name}>
+    <select
+      className="form-control"
+      value={value}
+      onChange={onChange}
+      name={name}
+      id={name}
+    >
       {options
         && options.map(option => (
           <option key={option.key} value={option.key}>
@@ -21,7 +27,7 @@ SelectInput.propTypes = {
   label: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
   options: PropTypes.arrayOf(
-    PropTypes.shape({ id: PropTypes.string.isRequired, text: PropTypes.string.isRequired })
+    PropTypes.shape({ key: PropTypes.string.isRequired, value: PropTypes.string.isRequired })
   ).isRequired,
   onChange: PropTypes.func.isRequired,
   name: PropTypes.string.isRequired,

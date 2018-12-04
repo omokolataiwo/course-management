@@ -17,7 +17,7 @@ function course(state = defaultCourse, action) {
         currentPage: action.currentPage
       }, action.type);
     case NEW_COURSE_CREATED:
-      return newState(state, { courses: [], currentPage: action.inPage }, action.type);
+      return newState(state, { currentPage: action.inPage }, action.type);
     case COURSE_UPDATED:
       return newState(state, {
         courses: state

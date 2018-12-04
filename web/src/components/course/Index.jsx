@@ -11,7 +11,7 @@ import AdministrativeHeader from '../containers/AdministrativeHeader';
 import AuthorList from '../author/AuthorList';
 import ManageAuthor from '../author/ManageAuthor';
 
-const courseIndex = (props) => {
+export const CourseIndex = (props) => {
   const {
     match: { path },
     totalCourses
@@ -35,9 +35,9 @@ const courseIndex = (props) => {
   );
 };
 
-courseIndex.propTypes = {
+CourseIndex.propTypes = {
   match: PropTypes.shape({ path: PropTypes.string.isRequired }).isRequired,
   totalCourses: PropTypes.number.isRequired
 };
-const mapStateToProps = ({ course: { courses, length: totalCourses } }) => ({ totalCourses });
-export default connect(mapStateToProps)(courseIndex);
+export const mapStateToProps = ({ course: { length: totalCourses } }) => ({ totalCourses });
+export default connect(mapStateToProps)(CourseIndex);

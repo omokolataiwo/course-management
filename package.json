@@ -7,8 +7,6 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "postinstall": "npm run build",
-    "build": "webpack --config webpack.config.js -p",
     "start": "node serve.js",
     "webpack:dev": "webpack-dev-server --config webpack.config.js --mode development",
     "all": "npm-run-all --parallel lint:watch webpack:dev \"test -- --watch\"",
@@ -57,6 +55,7 @@
     "file-loader": "^2.0.0",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
+    "identity-obj-proxy": "^3.0.0",
     "jest": "^23.6.0",
     "npm-run-all": "^4.1.3",
     "prop-types": "^15.6.2",
@@ -91,10 +90,12 @@
       "<rootDir>/web/__tests__/setup/setupEnzyme.js"
     ],
     "testPathIgnorePatterns": [
-      "<rootDir>/web/__tests__/setup/"
+      "<rootDir>/web/__tests__/setup/",
+      "<rootDir>/web/__tests__/__mocks__/"
     ],
     "moduleNameMapper": {
-      ".+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2|gif)$": "identity-obj-proxy"
+      ".+\\.(css|styl|less|sass|scss)$": "identity-obj-proxy",
+      ".+\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/web/__tests__/__mocks__/filesMock.js"
     }
   }
 }

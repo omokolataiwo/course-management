@@ -16,7 +16,7 @@ export class ManageCourse extends Component {
       params: PropTypes.shape({ id: PropTypes.string.isRequired }).isRequired
     }).isRequired,
     history: PropTypes.shape({ push: PropTypes.func.isRequired }).isRequired,
-    courseEvent: PropTypes.string,
+    courseEvent: PropTypes.symbol,
     course: PropTypes.shape({
       id: PropTypes.string,
       title: PropTypes.string,

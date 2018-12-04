@@ -41,12 +41,13 @@ class AuthorApi {
         // Simulate server-side validation
         const author = { ...newAuthor };
         const minAuthorNameLength = 3;
+
         if (author.firstName.length < minAuthorNameLength) {
-          reject(new Error(`First Name must be at least ${minAuthorNameLength} characters.`));
+          return reject(new Error(`First Name must be at least ${minAuthorNameLength} characters.`));
         }
 
         if (author.lastName.length < minAuthorNameLength) {
-          reject(new Error(`Last Name must be at least ${minAuthorNameLength} characters.`));
+          return reject(new Error(`Last Name must be at least ${minAuthorNameLength} characters.`));
         }
 
         if (author.id) {
